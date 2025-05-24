@@ -1,0 +1,368 @@
+<HTML>
+<HEAD>
+<TITLE>VIDEOJUEGO</TITLE>
+</HEAD>
+<BODY>
+<H2><CENTER>Video Juego JavaScript</CENTER> </H2>
+</BODY>
+
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -200px; 
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: left 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hover-zone"></div>
+
+
+   <div class="sidebar" id="sidebar">
+    <a href="Inicio.html">Inicio</a>
+    <a href="Notas.html">Notas de Parciales</a>
+    <a href="HojaVida.html">Hoja de Vida</a>
+    <a href="Galeria.html">Galeria de Imagenes</a>
+    <a href="Video.html">Video</a>
+    <a href="Videojuego.html">Videojuego JavaScript</a>
+    <a href="Manual.html">Manual Tecnico</a>
+  </div>
+
+
+ 
+  <div class="main" id="main">
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const hoverZone = document.querySelector('.hover-zone');
+
+
+    hoverZone.addEventListener('mouseenter', () => {
+      sidebar.style.left = '0';
+      main.style.marginLeft = '200px';
+    });
+
+
+    sidebar.addEventListener('mouseleave', () => {
+      sidebar.style.left = '-200px';
+      main.style.marginLeft = '0';
+    });
+  </script>
+  </style>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #70c5ce;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #70c5ce;
+    }
+    #pauseMenu, #startMenu {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      z-index: 2;
+    }
+    #pauseMenu {
+      display: none;
+    }
+    #scoreDisplay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+    }
+    #startMenu button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #70c5ce;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      display: block;
+      margin: auto;
+      background: #70c5ce;
+    }
+    #pauseMenu, #startMenu, #gameOverMenu {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+      z-index: 2;
+    }
+    #pauseMenu, #gameOverMenu {
+      display: none;
+    }
+    #scoreDisplay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      color: white;
+      font-weight: bold;
+    }
+    #startMenu button, #gameOverMenu button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="startMenu">
+    <h2>Bienvenido a Flappy Ball JS</h2>
+    <p>Presiona el botón para comenzar</p>
+    <button onclick="iniciarJuego()">Iniciar Juego</button>
+  </div>
+  <div id="pauseMenu">Juego en pausa<br>Presiona "P" para continuar</div>
+  <div id="gameOverMenu">
+    <h2>¡Has perdido!</h2>
+    <p>Tu puntaje: <span id="finalScore">0</span></p>
+    <button onclick="reiniciarDesdeGameOver()">Reiniciar Juego</button>
+  </div>
+  <div id="scoreDisplay">Puntaje: 0</div>
+  <canvas id="juego" width="400" height="600"></canvas>
+  <script>
+    const canvas = document.getElementById('juego');
+    const ctx = canvas.getContext('2d');
+    const pauseMenu = document.getElementById('pauseMenu');
+    const gameOverMenu = document.getElementById('gameOverMenu');
+    const finalScore = document.getElementById('finalScore');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const startMenu = document.getElementById('startMenu');
+
+    let frames = 0;
+    let gravedad = 0.25;
+    let salto = 4.6;
+    let puntuacion = 0;
+    let juegoPausado = true;
+    let juegoIniciado = false;
+    let animacionActiva = false;
+    let juegoTerminado = false;
+
+    const pajaro = {
+      x: 50,
+      y: 150,
+      velocidad: 0,
+      radio: 12,
+      dibujar() {
+        ctx.fillStyle = '#FFD700';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radio, 0, Math.PI * 2);
+        ctx.fill();
+      },
+      actualizar() {
+        this.velocidad += gravedad;
+        this.y += this.velocidad;
+      },
+      saltar() {
+        this.velocidad = -salto;
+      },
+      reiniciar() {
+        this.y = 150;
+        this.velocidad = 0;
+      }
+    };
+
+    const tuberia = {
+      anchura: 50,
+      espacio: 120,
+      tubos: [],
+
+      dibujar() {
+        this.tubos.forEach(tubo => {
+          ctx.fillStyle = '#228B22';
+          ctx.fillRect(tubo.x, 0, this.anchura, tubo.top);
+          ctx.fillRect(tubo.x, tubo.top + this.espacio, this.anchura, canvas.height);
+        });
+      },
+
+      actualizar() {
+        if (frames % 90 === 0) {
+          const top = Math.floor(Math.random() * (canvas.height - this.espacio - 100)) + 20;
+          this.tubos.push({ x: canvas.width, top, pasado: false });
+        }
+        this.tubos.forEach(tubo => {
+          tubo.x -= 2;
+
+          if (!tubo.pasado && tubo.x + this.anchura < pajaro.x) {
+            puntuacion++;
+            tubo.pasado = true;
+          }
+        });
+
+        this.tubos = this.tubos.filter(tubo => tubo.x + this.anchura > 0);
+      },
+
+      reiniciar() {
+        this.tubos = [];
+      }
+    };
+
+    function detectarColision() {
+      for (let tubo of tuberia.tubos) {
+        if (
+          pajaro.x + pajaro.radio > tubo.x &&
+          pajaro.x - pajaro.radio < tubo.x + tuberia.anchura
+        ) {
+          if (
+            pajaro.y - pajaro.radio < tubo.top ||
+            pajaro.y + pajaro.radio > tubo.top + tuberia.espacio
+          ) {
+            return true;
+          }
+        }
+      }
+      if (pajaro.y + pajaro.radio >= canvas.height || pajaro.y - pajaro.radio <= 0) {
+        return true;
+      }
+      return false;
+    }
+
+    function mostrarGameOver() {
+      juegoTerminado = true;
+      animacionActiva = false;
+      juegoIniciado = false;
+      gameOverMenu.style.display = 'block';
+      finalScore.textContent = puntuacion;
+    }
+
+    function reiniciarDesdeGameOver() {
+      pajaro.reiniciar();
+      tuberia.reiniciar();
+      frames = 0;
+      puntuacion = 0;
+      gameOverMenu.style.display = 'none';
+      iniciarJuego();
+    }
+
+    function actualizar() {
+      pajaro.actualizar();
+      tuberia.actualizar();
+      if (detectarColision()) {
+        mostrarGameOver();
+        return;
+      }
+      scoreDisplay.textContent = 'Puntaje: ' + puntuacion;
+    }
+
+    function dibujar() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pajaro.dibujar();
+      tuberia.dibujar();
+    }
+
+    function loop() {
+      if (!animacionActiva) return;
+      if (juegoIniciado && !juegoPausado && !juegoTerminado) {
+        actualizar();
+        dibujar();
+        frames++;
+      }
+      requestAnimationFrame(loop);
+    }
+
+    function iniciarJuego() {
+      juegoPausado = false;
+      juegoIniciado = true;
+      juegoTerminado = false;
+      startMenu.style.display = 'none';
+      pauseMenu.style.display = 'none';
+      if (!animacionActiva) {
+        animacionActiva = true;
+        loop();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!juegoIniciado || juegoTerminado) return;
+      if (e.code === 'Space') {
+        pajaro.saltar();
+      } else if (e.code === 'KeyP') {
+        juegoPausado = !juegoPausado;
+        pauseMenu.style.display = juegoPausado ? 'block' : 'none';
+      }
+    });
+  </script>
+</body>
+</HTML>

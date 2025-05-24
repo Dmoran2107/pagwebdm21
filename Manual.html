@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE>MANUAL</TITLE>
+</HEAD>
+<BODY>
+<H2><CENTER><p style="margin-top: 100px;">Manual Tecnico</p></CENTER> </H2>
+</BODY>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('inge.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+</style>
+
+
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -200px; 
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: left 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hover-zone"></div>
+
+
+   <div class="sidebar" id="sidebar">
+    <a href="Inicio.html">Inicio</a>
+    <a href="Notas.html">Notas de Parciales</a>
+    <a href="HojaVida.html">Hoja de Vida</a>
+    <a href="Galeria.html">Galeria de Imagenes</a>
+    <a href="Video.html">Video</a>
+    <a href="Videojuego.html">Videojuego JavaScript</a>
+    <a href="Manual.html">Manual Tecnico</a>
+  </div>
+
+
+ 
+  <div class="main" id="main">
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const hoverZone = document.querySelector('.hover-zone');
+
+
+    hoverZone.addEventListener('mouseenter', () => {
+      sidebar.style.left = '0';
+      main.style.marginLeft = '200px';
+    });
+
+
+    sidebar.addEventListener('mouseleave', () => {
+      sidebar.style.left = '-200px';
+      main.style.marginLeft = '0';
+    });
+  </script>
+  </style>
+
+<body>
+
+  <div style="width: 90%; margin: 20px auto; text-align: center;">
+    <h2><p style="margin-top: -50px;">Instrucciones para utilizar la Pagina Web</p></h2>
+
+   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; background-color: white;">
+
+      <div style="border: 2px solid black; padding: 10px; width: 250px;">
+        <h3>Página de Inicio</h3>
+        <ol>
+          <li>*Se muestra una pequeña serie de opciones</li>
+          <li>*Al ingresar, verás una página con una imagen de fondo que cubre toda la pantalla</li> 
+          <li>*Puedes desplazarte hacia abajo para explorar las diferentes secciones.</li>
+          <li>*Para poder utilizar el menú, se desplaza la flecha del mouse a la izquierda</li>
+          <li><b>Recomendaciones Técnicas</b></li>
+          <li>*Asegúrate de tener conexión a internet si las imágenes están enlazadas desde la web</li>
+          <li>*Accede desde un navegador moderno (Chrome, Firefox, Edge, etc.) para mejor visualización</li>
+          <li>*Si el diseño no se adapta bien a tu pantalla, reduce el zoom del navegador</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</HTML>

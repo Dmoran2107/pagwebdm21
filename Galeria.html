@@ -1,0 +1,148 @@
+<HTML>
+<HEAD>
+<TITLE>Galeria</TITLE>
+</HEAD>
+<BODY>
+<H2><CENTER>Galeria</CENTER> </H2>
+</BODY>
+
+
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -200px; 
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: left 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hover-zone"></div>
+
+
+ <div class="sidebar" id="sidebar">
+    <a href="Inicio.html">Inicio</a>
+    <a href="Notas.html">Notas de Parciales</a>
+    <a href="HojaVida.html">Hoja de Vida</a>
+    <a href="Galeria.html">Galeria de Imagenes</a>
+    <a href="Video.html">Video</a>
+    <a href="Videojuego.html">Videojuego JavaScript</a>
+    <a href="Manual.html">Manual Tecnico</a>
+  </div>
+
+
+ 
+  <div class="main" id="main">
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const hoverZone = document.querySelector('.hover-zone');
+
+
+    hoverZone.addEventListener('mouseenter', () => {
+      sidebar.style.left = '0';
+      main.style.marginLeft = '200px';
+    });
+
+
+    sidebar.addEventListener('mouseleave', () => {
+      sidebar.style.left = '-200px';
+      main.style.marginLeft = '0';
+    });
+  </script>
+  </style>
+
+<body>
+
+  <div style="width: 90%; margin: 20px auto; padding: 20px; border: 5px solid #000; background-color: #eee;">
+    <h2 style="text-align: center;">Galería de 10 Imágenes</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+      
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://www.todosobreautos.com/content/images/size/w1000/2024/09/iris-1.webp" alt="Imagen 1" style="width: 175px; height: 175px;">
+      </div>
+      
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://www.todosobreautos.com/content/images/size/w1000/2024/09/99572eea-ferrari-488-pista-1024x555_11zon.webp" alt="Imagen 2" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://th.bing.com/th/id/OIP.bvN3LJFmxGsYK7mdFvEWdwHaE8?rs=1&pid=ImgDetMain" alt="Imagen 3" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://www.purosautos.com/wp-content/uploads/2020/12/1022-mclaren-big-1-1400.jpg" alt="Imagen 4" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://th.bing.com/th/id/R.65f88ad41d7942e8c4ae566653ad8f00?rik=1n4mBn61iVAGJQ&riu=http%3a%2f%2fgtspirit.com%2fwp-content%2fuploads%2f2018%2f06%2fAston-Martin-DBS-Superleggera.jpg&ehk=FDermVd3BcBSHG2JQvHpYBNPdGGqHtN5d0j9XKQkriQ%3d&risl=&pid=ImgRaw&r=0" alt="Imagen 5" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://th.bing.com/th/id/OIP.kHafsoMBhi6X7xh12q5GIgHaEK?rs=1&pid=ImgDetMain" alt="Imagen 6" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://th.bing.com/th/id/OIP.zjDveY3L684fMC-Q-EqRTgHaE8?rs=1&pid=ImgDetMain" alt="Imagen 7" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://th.bing.com/th/id/R.4ed6a3668fac6c10764cf72e967297f3?rik=UXfS920aZ3Oldg&pid=ImgRaw&r=0" alt="Imagen 8" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://storage.googleapis.com/gtspirit/uploads/2015/05/Pagani-Huayra-The-King-1.jpg" alt="Imagen 9" style="width: 175px; height: 175px;">
+      </div>
+
+      <div style="border: 2px solid #555; padding: 5px;">
+        <img src="https://images.squarespace-cdn.com/content/v1/6371cc49cda4fd302dde5ccd/cfdb92de-52bd-44ad-9a82-7a4df7ccd621/Alex+Penfold+7251+Jesko.jpg?format=1000w" alt="Imagen 10" style="width: 175px; height: 175px;">
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</HTML>

@@ -1,0 +1,225 @@
+<HTML>
+<HEAD>
+<TITLE>Hoja de Vida</TITLE>
+</HEAD>
+<BODY>
+<H2><CENTER>Hoja de Vida</CENTER> </H2>
+</BODY>
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -200px; 
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: left 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hover-zone"></div>
+
+
+  <div class="sidebar" id="sidebar">
+    <a href="Inicio.html">Inicio</a>
+    <a href="Notas.html">Notas de Parciales</a>
+    <a href="HojaVida.html">Hoja de Vida</a>
+    <a href="Galeria.html">Galeria de Imagenes</a>
+    <a href="Video.html">Video</a>
+    <a href="Videojuego.html">Videojuego JavaScript</a>
+    <a href="Manual.html">Manual Tecnico</a>
+  </div>
+
+ 
+  <div class="main" id="main">
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const hoverZone = document.querySelector('.hover-zone');
+
+
+    hoverZone.addEventListener('mouseenter', () => {
+      sidebar.style.left = '0';
+      main.style.marginLeft = '200px';
+    });
+
+
+    sidebar.addEventListener('mouseleave', () => {
+      sidebar.style.left = '-200px';
+      main.style.marginLeft = '0';
+    });
+  </script>
+  </style>
+ <html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoja de Vida - Diego Morán</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 40px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      max-width: 850px;
+      margin: auto;
+      border: 6px double #007BFF;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #0056b3;
+    }
+
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #007BFF;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .outer-frame {
+      border: 4px double #007BFF;
+      padding: 10px;
+      margin-bottom: 30px;
+      background-color: #e9f1fb;
+    }
+
+    .inner-frame {
+      border: 2px solid #0056b3;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    p, li {
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="foto.jpg" alt="Foto de perfil" style="width: 100px; height: 100px; border-radius: 50%;">
+      <h1>Diego Josué Morán Barillas</h1>
+    </div>
+
+    <p><strong>Email:</strong>dmoranb1@miumg.edu.gt</p>
+    <p><strong>Teléfono:</strong>+502 3027-7115</p>
+    <p><strong>Dirección:</strong>Santa Rosa, Guatemala</p>
+
+
+    <div class="outer-frame">
+      <div class="inner-frame">
+        <h2>Experiencia Laboral</h2>
+        <ul>
+          <li><strong>La Cabaña Café y Restaurante</strong> – Encargado (2022 - 2025)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="outer-frame">
+      <div class="inner-frame">
+        <h2>Educación</h2>
+        <ul>
+          <li><strong>Universidad UMG</strong> – En Curso (2025)</li>
+          <li><strong>Cense</strong> – Bachillerato (2023-2024)</li>
+          <li><strong>Cense</strong> – Básicos (2020-2022)</li>
+          <li><strong>El Saber</strong> – Primaria (2014-2019)</li>
+
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="outer-frame">
+      <div class="inner-frame">
+        <h2><b>Cualidades</b></h2>
+        <ul>
+          <li>Amigable</li>
+          <li>Bondadoso</li>
+          <li>Mente Positiva</li>
+          <li>Educado</li>
+          <li>Curioso</li>
+        </ul>
+      </div>
+    </div>
+
+</body>
+</HTML>

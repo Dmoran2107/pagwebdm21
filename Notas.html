@@ -1,0 +1,136 @@
+<HTML>
+<HEAD>
+<TITLE>NOTAS</TITLE>
+</HEAD>
+<BODY>
+<H2><CENTER>NOTAS DE PARCIALES</CENTER> </H2>
+</BODY>
+
+
+
+<CENTER><TABLE border = 4 cellspacing = 4 cellpadding = 4 width =80%>
+<TH align = center>CURSO</TH>
+<TH align = center>NOTA PRIMER PARCIAL</TH>
+<TH align = center>NOTA SEGUNDO PARCIAL</TH>
+<TR>
+<TD align = LEFT><b>ISC</b></TD>
+<TD align = LEFT><b>7</b></TD>
+<TD align = LEFT><b>6</b></TD>
+</TR>
+<TR>
+<TD align = LEFT><b>LOGICA</b></TD>
+<TD align = LEFT><b>6</b></TD>
+<TD align = LEFT><b>13</b></TD>
+</TR>
+<TD align = LEFT><b>DESARROLLO</b></TD>
+<TD align = LEFT><b>11</b></TD>
+<TD align = LEFT><b>11</b></TD>
+</TR>
+<TR>
+<TD align = LEFT><b>CONTA</b></TD>
+<TD align = LEFT><b>11</b></TD>
+<TD align = LEFT><b>10</b></TD>
+</TR>
+<TD align = LEFT><b>METODOLOGIA</b></TD>
+<TD align = LEFT><b>9</b></TD>
+<TD align = LEFT><b>12</b></TD>
+</TR>
+
+
+</TABLE></CENTER>
+
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -200px; 
+      width: 200px;
+      height: 100%;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: left 0.3s;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+    .main {
+      margin-left: 0;
+      padding: 20px;
+      transition: margin-left 0.3s;
+    }
+
+    .hover-zone {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hover-zone"></div>
+
+
+ <div class="sidebar" id="sidebar">
+    <a href="Inicio.html">Inicio</a>
+    <a href="Notas.html">Notas de Parciales</a>
+    <a href="HojaVida.html">Hoja de Vida</a>
+    <a href="Galeria.html">Galeria de Imagenes</a>
+    <a href="Video.html">Video</a>
+    <a href="Videojuego.html">Videojuego JavaScript</a>
+    <a href="Manual.html">Manual Tecnico</a>
+  </div>
+
+
+ 
+  <div class="main" id="main">
+  </div>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('main');
+    const hoverZone = document.querySelector('.hover-zone');
+
+
+    hoverZone.addEventListener('mouseenter', () => {
+      sidebar.style.left = '0';
+      main.style.marginLeft = '200px';
+    });
+
+
+    sidebar.addEventListener('mouseleave', () => {
+      sidebar.style.left = '-200px';
+      main.style.marginLeft = '0';
+    });
+  </script>
+  </style>
+ <style>
+    body {
+      background-image: url('https://newsletter.unam.mx/wp-content/uploads/2024/10/Foto-recuperada-del-sitio-web-de-la-UMG.jpg'); /* pon aquí tu imagen */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center -15%;
+      height: 100vh;
+      margin: 0;
+    }
+  </style>
+</HTML>
